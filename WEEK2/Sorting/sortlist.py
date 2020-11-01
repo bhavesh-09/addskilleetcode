@@ -6,13 +6,13 @@
 class Solution:
     def sortList(self, head: ListNode) -> ListNode:
         if not head: return None
-        # step 1: store the values of the linked list into a list and sort the list
+        
         l = []
         while head:
             l.append(head.val)
             head = head.next
         l.sort()
-        # step 2: use the sorted list to build the new linked list
+        t
         res = cur = ListNode(0)
         for i in l:
             cur.next = ListNode(i)
