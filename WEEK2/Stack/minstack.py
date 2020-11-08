@@ -30,6 +30,8 @@ class MinStack:
         return self.s[-1]
 
     def getMin(self) -> int:
+    
+
         return self.minS[-1]
     
         
