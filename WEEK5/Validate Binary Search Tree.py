@@ -19,4 +19,6 @@ class Solution:
         if sorted(result)==result and len(set(result))==len(result):
             return True 
         return False
+
+
        
