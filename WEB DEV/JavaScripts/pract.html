@@ -1,13 +1,63 @@
+
 <html>
 <head>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+<title>Grammerly CLone</title>
 <body>
-    <input type="text" id = "text1" onkeypress = "text1(event)"></input>
-</body>
-<script>
+  <h2>Upload</h2>
+  <input type="file" name="inputfile" id="inputfile" onchange="read()"> <br/>	
+  <h2>Text</h2>
+  <div>
+      <textarea rows = "10" cols = "100" name = "desc" id="checks"></textarea>
+  </div>
+  <br>
+  <div>
+    
+    <h2>Wrong Spellings</h2> 
+  <div id="result"></div>
+</div>
   
+  
+</body>
 
+
+<script>
+function read(files){	
+    var file = inputfile.files[0];	
+    var reader = new FileReader();	
+    reader.readAsText(file);	
+    reader.onload = function(){	
+        checks.value = reader.result;
+        spellingCheck();	         
+    }	
+}	
+async function spellingCheck() {	
+    var wrongspelling=[];
+    var text = checks.value;
+    var url = "https://api.textgears.com/spelling?key=WSMPVaMH9Qp6Ej7Z&text="+text+"!&language=en-GB";	
+    var response = await fetch(url);
+    var user = await response.json();
+    console.log(user);	
+    for(item of user.response.errors){
+        wrongspelling.push(item.bad);
+    }
+    console.log(wrongspelling);
+    document.getElementById('result').innerHTML = transformContent(text,wrongspelling);
+}	
+
+function transformContent(content, keywords){
+  let temp = content
+
+  keywords.forEach(keyword => {
+    temp = temp.replace(new RegExp(keyword, 'ig'), wrapKeywordWithHTML(keyword))
+  })
+
+  return temp
+}
+
+function wrapKeywordWithHTML(keyword, url){
+  return `<a href="${url}" target="_blank"> <span style="font-weight: bold; color: blue; font-size: 40px">  ${keyword}  </span> </a>`
+}
 </script>
-
-</html>
+</html> 
