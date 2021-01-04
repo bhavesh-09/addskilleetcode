@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Cool Veggies</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+
+    /* Remove the jumbotron's default bottom margin */
+    .jumbotron {
+      margin-bottom: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav mr-auto">
+          <li class="active"><a href="#"> <strong> Best Veggies </strong> </a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Deals</a></li>
+          <li><a href="#">Stores</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <form class="form-inline nav navbar-nav mr-auto">
+          <input id="myinput" onkeyup="searchFunction()" class="form-control mt-5" type="search" placeholder="Search" aria-label="Search">
+          <select id="grocery"  onclick="searchGroceries()">
+            <option value="1" selected>Choose</option>
+            <option value="2">Vegetables</option>
+            <option value="3">Fruits</option>
+            <!-- <option selected="selected">Groceries</option> -->
+          </select>
+        </form>
+        
+    
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+          <li><a href="cart.html " class="glyphicon glyphicon-shopping-cart"> Cart 
+            <span >0</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div   onmouseover="setNewColor()"   onmouseout="setOldColor()"id="tomatoDiv"class="container">
+    <div class="row">
+      <div  class="col-sm-4">
+        <div class="panel panel-primary ">
+          <div  class="panel-heading">Tomatoes </div>
+          <div class="panel-body"><img src="cart Images/tomato.jpg" class="img-responsive"
+              style="width:100%; height: 250px;" alt="Image"></div>
+          <div class="panel-footer">
+            <button id="tomatoButton" type="button" class="btn btn-primary">Buy
+              Tomato's</button>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Cucumber</div>
+          <div onmouseover="setNewColor()" id="demo" onmouseout="setOldColor()" class="panel-body"><img src="cart Images/cucumber.jpg" class="img-responsive"
+              style="width:100%;  height: 250px;" alt="Image"></div>
+          <div class="panel-footer">
+          <button id="tomatoButton" type="button" class="btn btn-primary">Buy
+            Cucumber </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Chilli's</div>
+          <div class="panel-body"><img src="cart Images/chilli.jpg" class="img-responsive"
+              style="width:100%; height: 250px" alt="Image"></div>
+          <div class="panel-footer">
+            <button id="tomatoButton" type="button" class="btn btn-primary">Buy
+              Tomato's</button>
+            <button id="cartButton" type="button" class="btn btn-success btn-small pull-right">Add to Cart
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div id="fruitDiv"  onmouseover="setfruitNewColor()"  onmouseout="setfruitOldColor()" class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="panel panel-primary ">
+          <div id="fruit" class="panel-heading">Strawberry's </div>
+          <div class="panel-body"><img id="strawberyImg" src="cart Images/strawbery.jpg" class="img-responsive"
+              style="width:100%; height: 250px;" alt="Image"></div>
+          <div class="panel-footer">
+            <button id="tomatoButton" type="button" class="btn btn-primary">Buy
+              Tomato's</button>
+            <button id="cartButton" type="button" class="btn btn-success btn-small pull-right">Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Mango's</div>
+          <div class="panel-body"><img src="cart Images/mango.jpg" class="img-responsive"
+              style="width:100%;  height: 250px;" alt="Image"></div>
+          <div class="panel-footer">
+            <button id="tomatoButton" type="button" class="btn btn-primary">Buy
+              Tomato's</button>
+            <button id="cartButton" type="button" class="btn btn-success btn-small pull-right">Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Pineapple's</div>
+          <div class="panel-body"><img src="cart Images/pineapple.jpg" class="img-responsive"
+              style="width:100%; height: 250px" alt="Image"></div>
+          <div class="panel-footer">
+            <button id="tomatoButton" type="button" class="btn btn-primary">Buy
+              Tomato's</button>
+            <button id="cartButton" type="button" class="btn btn-success btn-small pull-right">Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><br><br>
+
+  <footer class="container-fluid text-center">
+    <p>Online Store Copyright</p>
+    <form method="post"   class="form-inline">Get deals:
+      <input id="email" type="email" v class="form-control" size="50" placeholder="Email Address">
+      <button id="emailvalidate" type="submit" onclick="validateEmail()"class="btn btn-danger">Sign Up</button>
+    </form>
+  </footer>
+
+</body> 
+<script>
+  // <----------- timeofmouse Features--------------->
+
+
+
+
+
+   // <----------- timeofmouse color Features--------------->
+
+  function setNewColor() {
+  document.getElementById('tomatoDiv').style.background = 'red';
+  let elements = document.getElementsByClassName('container');
+}
+
+function setOldColor() {
+  document.getElementById('tomatoDiv').style.background= 'white';
+  var elements = document.getElementsByClassName('container');
+}
+
+function setfruitNewColor() {
+  document.getElementById('fruitDiv').style.background = 'red';
+  let elements = document.getElementsByClassName('container');
+}
+
+function setfruitOldColor() {
+  document.getElementById('fruitDiv').style.background= 'white';
+  let elements = document.getElementsByClassName('container');
+}
+
+
+  // <----------- Dropdown Features--------------->
+  function searchGroceries(){
+    let grocery = document.getElementById("grocery").value;
+    let id = document.getElementById("fruitDiv");
+    if(grocery){
+      id.style.display = "none";
+    }else{
+
+    }
+    //debugger;
+  }
+
+// <----------- mail Features--------------->
+function validateEmail(){
+    var emailField = document.getElementById("email").value;
+    atpos = emailField.indexOf("@");
+    dotpos = emailField.lastIndexOf(".");
+
+    if (atpos < 1 || ( dotpos - atpos < 2 )) {
+        document.getElementById("email").className = "email-warning";
+        return false;
+    }
+    document.getElementById("email").className = "email-valid";
+    return true;
+
+}
+    
+    
+    // <----------- cart Features--------------->
+    let carts= document.querySelectorAll(".btn-primary");
+    let products = [
+      {
+        name:"Tomato",
+        inCart: 0
+
+      },
+      {
+        name:"Cucumber",
+        inCart: 0
+
+      },
+      {
+        name:"Chillis",
+        inCart: 0
+
+      },
+      {
+        name:"Strawberrys",
+        inCart: 0
+
+      },
+      {
+        name:"Mango",
+        inCart: 0
+
+      },
+      {
+        name:"Pineapple",
+        inCart: 0
+
+      },
+
+      
+    ];
+    // debugger;
+
+    for (let i=0; i < carts.length; i++) {
+      carts[i].addEventListener("click",() => {
+        CartNumbers(products[i]);
+      });
+    }
+
+
+    function onLoadCartNumbers(){
+      let productnumbers = localStorage.getItem('CartNumbers');
+
+      if (productnumbers){
+        document.querySelector('.glyphicon-shopping-cart span').textContent = productnumbers;
+      }
+
+
+    }
+
+    function CartNumbers(products){
+      console.log("the pro is ",products);
+      let productnumbers=localStorage.getItem('CartNumbers');
+      productnumbers=parseInt(productnumbers);
+      if (productnumbers){
+        localStorage.setItem('CartNumbers',productnumbers + 1);
+        document.querySelector('.glyphicon-shopping-cart span').textContent = productnumbers + 1;
+      }else{
+        localStorage.setItem('CartNumbers',1);
+        document.querySelector('.glyphicon-shopping-cart span').textContent = 1;
+      }
+
+      setItems(products);
+     
+      
+
+    }
+    function setItems(products) {
+      co
+    }
+    onLoadCartNumbers();
+    
+    // function addCart(){
+    //   let elem = event.target;
+    //   let html = `<div class="panel panel-primary ">
+    //       <div class="panel-heading">`+elem.innerText+` </div>
+    //       <div class="panel-body"><img src="cart Images/tomato.jpg" class="img-responsive" style="width:100%; height: 250px;" alt="Image"></div>
+    //       <div class="panel-footer">
+            
+            
+    //       </div>
+    //     </div>`;
+    //     displayCart(html);
+        
+      //displayCart(parents);
+
+    // }
+    // if (document.getElementById('email').value == 'email'){
+    //   // alert("Please enter email");
+    //   document.getElementById('email').style.borderColor = "red";
+    //   return false;
+
+    // }
+
+
+ // <----------- searchbox Features--------------->
+  function searchFunction()  { 
+    let grocery,filter,i,elems,txtValue;
+    filter = document.getElementById("myinput").value.toUpperCase();
+    elems= document.getElementsByClassName("col-sm-4");
+    for (i = 0; i < elems.length; i++) {
+      grocery = elems[i].getElementsByClassName("panel-heading")[0];
+      if (grocery) {
+        txtValue = grocery.innerHTML || grocery.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+
+          elems[i].style.display = "";
+        }else{
+          elems[i].style.display = "none";
+        }
+    }       
+  }
+   
+  }
+</script>
+
+</html>

@@ -1,0 +1,39 @@
+<!-- Register form -->
+<form action="/users/register" method="POST" class="register-form">
+    <h2>Register for an account</h2>
+    <% include ../partials/messages %>
+    
+    <!-- Name -->
+    <div class="field-group">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" value="<%= typeof name != 'undefined' ? name : '' %>">
+    </div>
+
+    <!-- Email -->
+    <div class="field-group">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" value="<%= typeof email != 'undefined' ? email : '' %>">
+    </div>
+
+    <!-- Password -->
+    <div class="field-group">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" value="<%= typeof password != 'undefined' ? password : '' %>">
+    </div>
+
+    <!-- Confirm password -->
+    <div class="field-group">
+        <label for="password2">Confirm password</label>
+        <input id="password2" name="password2" type="password" value="<%= typeof password2 != 'undefined' ? password2 : '' %>">
+    </div>
+
+    <!-- Links -->
+    <div class="form-links">
+        <a href="/users/login">Already have an account?</a>
+    </div>
+
+    <!-- Submit -->
+    <button class="btn-register" type="submit">Register</button>
+</form>
+<!-- end register form -->
+     
